@@ -1,10 +1,6 @@
 name: Django CI
 
-on:
-  push:
-    branches: [ master, main, create-github-actions-pipeline ]
-  pull_request:
-    branches: [ master, main, create-github-actions-pipeline ]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -46,6 +42,6 @@ jobs:
         python manage.py loaddata fixtures/encoding_profiles.json
         python manage.py loaddata fixtures/categories.json
         python manage.py collectstatic --noinput
-    # - name: Run Tests
+    # - name: Run Django Tests
     #   run: |
     #     python manage.py test
