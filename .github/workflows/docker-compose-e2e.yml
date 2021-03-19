@@ -19,7 +19,7 @@ jobs:
     - name: Build docker image
       run: docker build -t mediacms/mediacms:latest .
     - name: Build the docker-compose stack
-      run: docker-compose -f docker-compose-named-volumes.yaml
+      run: docker-compose -f docker-compose-named-volumes.yaml up -d
     - name: Check running containers
       run: docker ps -a
     # - name: Check logs
