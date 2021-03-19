@@ -7,12 +7,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    # env:
-    #   PG_PASS: ${{ secrets.PG_PASS }}
-    #   DATABASE_URL: postgresql://postgres:${{ secrets.SECRET_PASSWORD }}@postgres/postgres
-    #   DJANGO_SETTINGS_MODULE: app_name.settings.dev
-    #   SECRET_KEY: ${{ secrets.SECRET_KEY }}
-    #   PORT: 8000
 
     steps:
     - uses: actions/checkout@v1
@@ -22,7 +16,7 @@ jobs:
       run: docker-compose -f docker-compose-named-volumes.yaml up -d
     - name: Check running containers
       run: docker ps -a
-    # - name: Check logs
-    #   run: docker logs backend
+    - name: Check logs
+      run: docker logs mediacms_web_1
     # - name: Run test suite
     #   run: docker exec backend pytest --skip-auth
