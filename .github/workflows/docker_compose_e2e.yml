@@ -17,6 +17,6 @@ jobs:
     - name: Check running containers
       run: docker ps -a
     - name: Check logs
-      run: docker logs mediacms_web_1
+      run: docker exec -t mediacms_web_1 ls -la
     # - name: Run test suite
     #   run: docker exec backend pytest --skip-auth
